@@ -1,0 +1,11 @@
+label: gradle
+not_cleanup: true
+location: ../
+keys:
+  - android-joplin
+inputs:
+  - glob:packages/app-mobile/android/**/*.gradle
+outputs:
+  - node_modules
+commands:
+  - cd packages/app-mobile/android && ./gradlew assembleDebug

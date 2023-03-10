@@ -1,0 +1,30 @@
+label: yarn
+not_cleanup: true
+location: ../
+keys:
+  - yarn-joplin
+inputs:
+  - glob:**/package.json
+outputs:
+  - node_modules
+  - packages/fork-htmlparser2/node_modules
+  - packages/app-clipper/popup/node_modules
+  - packages/renderer/node_modules
+  - packages/tools/node_modules
+  - packages/react-native-saf-x/node_modules
+  - packages/turndown-plugin-gfm/node_modules
+  - packages/fork-uslug/node_modules
+  - packages/app-desktop/node_modules
+  - packages/app-mobile/node_modules
+  - packages/fork-sax/node_modules
+  - packages/turndown/node_modules
+  - packages/plugin-repo-cli/node_modules
+  - packages/react-native-alarm-notification/node_modules
+  - packages/server/node_modules
+  - packages/pdf-viewer/node_modules
+  - packages/htmlpack/node_modules
+  - packages/lib/node_modules
+  - packages/app-cli/node_modules
+  - packages/generator-joplin/node_modules
+commands:
+  - yarn
