@@ -15,6 +15,7 @@
 // https://github.com/facebook/metro/issues/1#issuecomment-511228599
 
 const path = require('path');
+const { HttpStore } = require('metro-cache');
 
 const localPackages = {
 	'@joplin/lib': path.resolve(__dirname, '../lib/'),
@@ -66,4 +67,15 @@ module.exports = {
 	},
 	projectRoot: path.resolve(__dirname),
 	watchFolders: watchedFolders,
+	cacheStores: process.env.BITRISE_HTTP_CACHE_ENDPOINT ? [
+		new HttpStore({
+			endpoint: process.env.BITRISE_HTTP_CACHE_ENDPOINT,
+			family: 6,
+			timeout: 600,
+		}),
+	] : function() {
+		// eslint-disable-next-line no-console
+		console.log('BITRISE_HTTP_CACHE_ENDPOINT unset');
+		return [];
+	}(),
 };
